@@ -1,0 +1,42 @@
+﻿@model IEnumerable<CovidWorkingPlan.Models.EmployeeInfo>
+
+@{
+    ViewData["Title"] = "Employees";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Employee Management</h1>
+
+<p>
+    <a asp-action="Create">Add new employee</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Employee
+            </th>
+            <th>
+                Code
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmpNameSurname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmpCode)
+            </td>
+            <td style="text-align:right">
+                <a asp-action="Edit" asp-route-id="@item.Idemployee">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Idemployee">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Idemployee">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

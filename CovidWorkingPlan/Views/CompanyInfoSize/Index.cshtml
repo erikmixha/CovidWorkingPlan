@@ -1,0 +1,56 @@
+﻿@model IEnumerable<CovidWorkingPlan.Models.CompanyInfoSize>
+
+@{
+    ViewData["Title"] = "Seating Numbers";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Seating Numbers</h1>
+
+
+<p id="NewSeatBtn">
+    <a asp-action="Create">Add New Seating</a>
+</p>
+
+<table class="table" id="seatingTbl">
+    <thead>
+        <tr>
+
+            <th>
+                Total Seating Nr
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.TotalSeatingNumbers)
+                </td>
+                <td style="text-align:right">
+                    <a asp-action="Edit" asp-route-id="@item.IdcompanyInfo">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.IdcompanyInfo">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.IdcompanyInfo">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@*Check if there's no row in the table, if not the add button will show*@
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+
+<script type="text/javascript">
+    var tblrows = $('#seatingTbl').find('tr').length;
+    if (tblrows > 1) {
+        $("#NewSeatBtn").hide();
+    }
+    else {
+        $("#NewSeatBtn").show();
+    }
+
+</script>
+

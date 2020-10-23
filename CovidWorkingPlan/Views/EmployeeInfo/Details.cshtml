@@ -1,0 +1,30 @@
+﻿@model CovidWorkingPlan.Models.EmployeeInfo
+
+@{
+    ViewData["Title"] = "Employee Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Employee Details</h1>
+
+<div>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            Name Surname
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.EmpNameSurname)
+        </dd>
+        <dt class = "col-sm-2">
+           Code
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.EmpCode)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Idemployee">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

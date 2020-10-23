@@ -1,0 +1,33 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div>
+
+    <p class="text-center"> What do u want to do? </p>
+    <div class="text-center">
+        <span>
+            <a href="@Url.Action("Index", "EmployeeInfo")">
+                Employee Management
+            </a>
+        </span>
+
+    </div>
+    <div class="text-center">
+        <span>
+            <a href="@Url.Action("Index", "CompanyInfoSize")">
+                Seating Numbers
+            </a>
+        </span>
+
+    </div>
+    <div class="text-center">
+        <span>
+            <a href="@Url.Action("Index", "WorkingToday")">
+                Manage Work Day
+            </a>
+        </span>
+
+    </div>
+</div>
+

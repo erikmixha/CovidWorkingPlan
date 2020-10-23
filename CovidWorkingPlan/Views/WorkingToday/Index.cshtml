@@ -1,0 +1,48 @@
+﻿@model IEnumerable<CovidWorkingPlan.Models.WorkingToday>
+
+@{
+    ViewData["Title"] = "Manage work day";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Manage Work Day</h1>
+
+<p>
+    <a asp-action="Create">Add new work date</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Date
+            </th>
+            <th>
+                Employee
+            </th>
+            <th>
+                Seat Nr
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.WorkDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdemployeeNavigation.EmpNameSurname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SeatNr)
+            </td>
+            <td style="text-align:right">
+                <a asp-action="Edit" asp-route-id="@item.IdworkToday">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.IdworkToday">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.IdworkToday">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,39 @@
+﻿@model CovidWorkingPlan.Models.EmployeeInfo
+
+@{
+    ViewData["Title"] = "Edit Employee";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Edit Employee </h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Idemployee" />
+            <div class="form-group">
+                <label asp-for="EmpNameSurname" class="control-label">Name Surname</label>
+                <input asp-for="EmpNameSurname" class="form-control" autocomplete="off" maxlength="50" />
+                <span asp-validation-for="EmpNameSurname" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EmpCode" class="control-label">Code</label>
+                <input asp-for="EmpCode" class="form-control" autocomplete="off" onkeyup="this.value=this.value.replace(/[^\d]/,'')" min="1" maxlength="10" />
+                <span asp-validation-for="EmpCode" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

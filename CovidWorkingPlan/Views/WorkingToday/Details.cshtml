@@ -1,0 +1,36 @@
+﻿@model CovidWorkingPlan.Models.WorkingToday
+
+@{
+    ViewData["Title"] = "Work Day Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Work Day Details</h1>
+
+<div>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            Date
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.WorkDate)
+        </dd>
+        <dt class="col-sm-2">
+            Employee
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.IdemployeeNavigation.EmpNameSurname)
+        </dd>
+        <dt class="col-sm-2">
+            Seat Nr
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.SeatNr)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.IdworkToday">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

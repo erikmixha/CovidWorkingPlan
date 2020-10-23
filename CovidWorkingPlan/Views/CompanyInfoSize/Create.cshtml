@@ -1,0 +1,34 @@
+﻿@model CovidWorkingPlan.Models.CompanyInfoSize
+
+@{
+    ViewData["Title"] = "Add Total Seatings";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Add Total Seatings</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            
+            <div class="form-group">
+                <label asp-for="TotalSeatingNumbers" class="control-label">Total Seating Nr</label>
+                <input asp-for="TotalSeatingNumbers" onkeyup="this.value=this.value.replace(/[^\d]/,'')" min="1" maxlength="4" class="form-control" />
+                <span asp-validation-for="TotalSeatingNumbers" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
